@@ -1,6 +1,7 @@
 ﻿//Напишите программу, которая перевернет массив (последний элемент будет на первом месте,
 //а первый на последнем и т.д.)
 
+/*
 int [] CreateNewArray (int size, int min, int max)
 {
     int [] array = new int [size];
@@ -47,12 +48,41 @@ int maxValue = Convert.ToInt32(Console.ReadLine());
 
 int [] newArray = CreateNewArray(countElem, minValue, maxValue);
 ShowNewArray(newArray);
-Console.WriteLine();
-//int [] reversedArray = ReverseArray(newArray);
-//ShowNewArray(reversedArray);
+Console.Write(" -> ");                       
+//Console.WriteLine(); - на следующей строке
+int [] reversedArray = ReverseArray(newArray);
+ShowNewArray(reversedArray);
 
-ShowNewArray(ReverseArray(newArray));   // можно записать так (замена пред. двум строкам)
+//ShowNewArray(ReverseArray(newArray));   // можно записать так (замена пред. двум строкам)
+*/
 
+//Не используя рекурсию, выведете первые N чисел Фибоначчи. 
+//Первые два числа Фибоначчи: a и b (задает пользователь)
+//Последовательность Фибоначчи.
+//1 1 -> 1 + 1 = 2; 1 + 2 = 3; 2 + 3 = 5
+//1 1 2 3 5 
 
-//
+void Fibonachi(int count, int a, int b)
+{
+    int [] fibArray = new int [count];
+    fibArray[0] = a;
+    fibArray[1] = b;
+    for (int i = 2; i < count; i++)      // i = 2, тк первые два эл-та нам даны (a, b)
+        fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
+    ShowArray(fibArray);
+}
 
+void ShowArray(int [] array)
+{
+    for (int i = 0; i < array.Length; i++)
+        Console.Write(array[i] + " ");
+}
+
+Console.WriteLine("Input count of elements: ");
+int countElem = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input first element: ");
+int firstElem = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Input second element: ");
+int secondElem = Convert.ToInt32(Console.ReadLine());
+
+Fibonachi(countElem, firstElem, secondElem);
