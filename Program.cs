@@ -19,17 +19,18 @@ void ShowNewArray(int [] array)
     }
 }
 
-int ReverseArray(int [] array)
+int [] ReverseArray(int [] array)
 {
     int k = array.Length;
-    for (int i = 0; i < k / 2; i++)    // делим на два что - бы остановить разворот, иначе вернемся к исходному порядку
+    for (int i = 0; i < k /2; i++)    // делим на два что - бы остановить разворот, иначе вернемся к исходному порядку
     {
-        int temp = array[i];               //ячейка для заполнения
-        array[i] = array[k - 1 - i];       //  
-        array[k - 1 - i] = temp;           // сохраняем в ячейку
+        int temp = array[i];            //ячейка для заполнения
+        array[i] = array[k - 1 - i];
+        array[k - 1 - i] = temp;        // сохраняем в ячейку
     }
     return array;
 }
+
 // 1-я итерация:
 //i 0 1 2 3 4 5 
 //i < k (i =0; k = 6)
@@ -46,11 +47,11 @@ int maxValue = Convert.ToInt32(Console.ReadLine());
 
 int [] newArray = CreateNewArray(countElem, minValue, maxValue);
 ShowNewArray(newArray);
-Console.Writeline();
-int [] reversedArray = ReverseArray(newArray);
-ShowNewArray(reversedArray);
+Console.WriteLine();
+//int [] reversedArray = ReverseArray(newArray);
+//ShowNewArray(reversedArray);
 
-//ShowNewArray(ReverseArray(newArray));   // можно записать так (замена пред. двум строкам)
+ShowNewArray(ReverseArray(newArray));   // можно записать так (замена пред. двум строкам)
 
 
 //
