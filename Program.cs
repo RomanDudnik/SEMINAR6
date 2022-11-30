@@ -95,6 +95,7 @@ Fibonachi(countElem, firstElem, secondElem);
 //может ли существовать треугольник со сторонами такой длинны.
 //каждая сторона треугольника меньше суммы двух других сторон.
 
+/*
 bool Triangle(int side1, int side2, int side3)
 
 {
@@ -114,4 +115,32 @@ bool result = Triangle(firstSide, secondtSide, thirdSide);
 if (result == true)
     Console.WriteLine("Triangle exists");
 else Console.WriteLine("Triangle does not exists");
+*/
+
+//Из десятичной в двоичную (делим на 2, отнимаем результат умноженный на 2, дальше результат делим на 2 и т.д.):
+//двоичный итог записываем в обратном вычислению порядке!
+//10| 2
+//10  5| 2
+//(0) 4  2| 2
+//   (1) 2 (1)
+//      (0)
+// 1010
+//Напишите программу которая будет преобразовывать число из десятичной системы в двличную.
+
+string BinarSyst (int num )
+{
+    string binResult = string.Empty;   //резервируем память для последующей записи
+    while (num !=0)                   //пока число не равно нулю
+    {
+        binResult = num % 2 + binResult;  // делим с остатком и записываем в строку // 10%2 -> 0 => binResult = 0
+        num /= 2;                                                                   // 5% 2 -> 1 = >10 ...
+    }                                     
+    return binResult;
+}
+
+Console.WriteLine("Input number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+string res = BinarSyst(number);
+Console.WriteLine($"Your number {number} is binar syst is {res}");
 
