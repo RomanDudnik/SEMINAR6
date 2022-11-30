@@ -59,9 +59,12 @@ ShowNewArray(reversedArray);
 //Не используя рекурсию, выведете первые N чисел Фибоначчи. 
 //Первые два числа Фибоначчи: a и b (задает пользователь)
 //Последовательность Фибоначчи.
+// F(i) = F(i-1) + F(i-2)
+//4 5 9 14 23 (N = 5)
 //1 1 -> 1 + 1 = 2; 1 + 2 = 3; 2 + 3 = 5
 //1 1 2 3 5 
 
+/*
 void Fibonachi(int count, int a, int b)
 {
     int [] fibArray = new int [count];
@@ -86,3 +89,29 @@ Console.WriteLine("Input second element: ");
 int secondElem = Convert.ToInt32(Console.ReadLine());
 
 Fibonachi(countElem, firstElem, secondElem);
+*/
+
+//Напишите программу, которая принимает на вход три числа и проверяет,
+//может ли существовать треугольник со сторонами такой длинны.
+//каждая сторона треугольника меньше суммы двух других сторон.
+
+bool Triangle(int side1, int side2, int side3)
+
+{
+    if (side1 + side2 > side3 && side2 + side3 > side3 && side1 + side3 > side2)
+        return true;
+    else return false;
+}
+
+Console.WriteLine($"Input first side: ");
+int firstSide = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Input second side: ");
+int secondtSide = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Input trird side: ");
+int thirdSide = Convert.ToInt32(Console.ReadLine());
+
+bool result = Triangle(firstSide, secondtSide, thirdSide);
+if (result == true)
+    Console.WriteLine("Triangle exists");
+else Console.WriteLine("Triangle does not exists");
+
